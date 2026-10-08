@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fffdf8" />
+    <meta
+      name="description"
+      content="Larissa & Gabriel convidam você para celebrar seu casamento em 29 de novembro de 2026."
+    />
+    <title>Larissa & Gabriel | Nosso Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="lg-envelope.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="lg-envelope.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="locked">
+    <div
+      class="lg-envelope-root"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Convite de casamento de Gabriel e Larissa"
+    >
+      <div class="lg-envelope-sheet"></div>
+      <div class="lg-envelope-stage">
+        <div class="lg-envelope-drop"></div>
+        <div class="lg-envelope-paper-shade" aria-hidden="true">
+          <i class="lg-envelope-shade lg-envelope-shade--left"></i
+          ><i class="lg-envelope-shade lg-envelope-shade--right"></i
+          ><i class="lg-envelope-shade lg-envelope-shade--center"></i>
+        </div>
+        <div class="lg-envelope-door lg-envelope-door--left">
+          <span class="lg-envelope-door-shade"></span>
+        </div>
+        <div class="lg-envelope-door lg-envelope-door--right">
+          <span class="lg-envelope-door-shade"></span>
+        </div>
+        <div class="lg-envelope-seal" aria-hidden="true">
+          <i class="lg-envelope-seal-shadow"></i>
+          <img class="lg-envelope-seal-img" alt="" draggable="false" />
+          <svg
+            class="lg-envelope-curved-text"
+            viewBox="0 0 300 300"
+            aria-hidden="true"
+          >
+            <defs>
+              <path id="lg-text-curve" d="M 48,204 Q 150,314 252,204" />
+            </defs>
+            <text>
+              <textPath
+                href="#lg-text-curve"
+                startOffset="50%"
+                text-anchor="middle"
+              >
+                TOQUE PARA ABRIR
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <audio id="music" src="assets/musica.mp3" preload="none" loop></audio>
+    <button
+      id="soundBtn"
+      class="sound-button"
+      type="button"
+      aria-label="Silenciar música"
+      aria-pressed="false"
+      hidden
+    >
+      <span id="soundIcon">♫</span><span id="soundText">Som ligado</span>
+    </button>
+    <main id="invitation" class="invitation" aria-hidden="true">
+      <div class="paper-waves" aria-hidden="true">
+        <div class="wave wave-left"></div>
+        <div class="wave wave-right"></div>
+      </div>
+      <section class="hero section" id="inicio">
+        <div class="hero-inner">
+          <span class="eyebrow reveal">O CASAMENTO DE</span
+          ><img
+            src="assets/monograma-lg.png"
+            class="hero-logo"
+            alt="Monograma dourado LG"
+          />
+          <h1 class="script hero-names">Larissa <span>&amp;</span> Gabriel</h1>
+          <p class="verse reveal">
+            “Assim, eles já não são dois, mas sim uma só carne.<br />Portanto, o
+            que Deus uniu, ninguém separa.”
+          </p>
+          <span class="reference reveal">MATEUS 19:6</span>
+          <div class="gold-divider reveal"><span>♡</span></div>
+        </div>
+      </section>
+      <section class="welcome section reveal">
+        <span class="eyebrow">CONVIDAMOS VOCÊ PARA</span>
+        <h2 class="script">Celebrar o nosso amor</h2>
+        <p>
+          Há encontros que mudam uma vida inteira. E há pessoas que fazem parte
+          dela de um jeito tão especial que precisam estar presentes quando um
+          novo capítulo começa.
+        </p>
+      </section>
+      <section class="date-section section reveal" id="data">
+        <span class="eyebrow">RESERVE ESTA DATA</span>
+        <div class="date-layout">
+          <div class="date-side"><span>NOVEMBRO</span></div>
+          <strong>29</strong>
+          <div class="date-side"><span>ÀS 13H</span></div>
+        </div>
+        <span class="eyebrow">DOMINGO · 2026</span>
+      </section>
+      <section class="countdown section reveal">
+        <div class="tiny-ornament">♡</div>
+        <span class="eyebrow">FALTAM</span>
+        <div class="count-grid" aria-label="Contagem regressiva">
+          <div><strong id="days">00</strong><span>DIAS</span></div>
+          <div><strong id="hours">00</strong><span>HORAS</span></div>
+          <div><strong id="minutes">00</strong><span>MINUTOS</span></div>
+          <div><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
+        </div>
+        <p id="countdownEnd" class="count-end" hidden>O grande dia chegou!</p>
+      </section>
+      <section class="venue section reveal" id="local">
+        <span class="eyebrow">LOCAL</span>
+        <h2 class="script">JB Espaço Eventos</h2>
+        <p>R. Treze, 564 — Vila Sônia<br />São Paulo — SP</p>
+        <img
+          src="assets/local-aquarela.png"
+          alt="Ilustração em aquarela do JB Espaço Eventos"
+          loading="lazy"
+          class="venue-image"
+        />
+      </section>
+      <section class="manual section" id="manual">
+        <span class="eyebrow reveal"
+          >ALGUNS RECADINHOS PARA O NOSSO GRANDE DIA</span
+        >
+        <h2 class="script reveal">Manual dos Convidados</h2>
+        <div class="manual-grid">
+          <article class="rule reveal">
+            <span class="rule-num">01</span>
+            <div>
+              <h3>CONVIDADO NÃO CONVIDA!</h3>
+              <p>
+                O convite é pessoal e destinado exclusivamente às pessoas
+                convidadas.
+              </p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">02</span>
+            <div>
+              <h3>CONFIRME SUA PRESENÇA</h3>
+              <p>Confirme sua presença até o dia 16/11/2026.</p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">03</span>
+            <div>
+              <h3>NÃO SE ATRASE</h3>
+              <p>Seja pontual e respeite o horário da cerimônia.</p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">04</span>
+            <div>
+              <h3>PARTICIPE DA CERIMÔNIA</h3>
+              <p>
+                Sua presença nesse momento tão especial é muito importante para
+                nós.
+              </p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">05</span>
+            <div>
+              <h3>RESPEITE AS CORES DOS NOIVOS</h3>
+              <p>
+                Branco é a cor da noiva e bege é a cor do noivo. Pedimos que
+                evitem essas cores.
+              </p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">06</span>
+            <div>
+              <h3>NÃO ATRAPALHE OS FOTÓGRAFOS</h3>
+              <p>Deixe os profissionais registrarem os momentos especiais.</p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">07</span>
+            <div>
+              <h3>AGUARDE A LIBERAÇÃO DA MESA DE DOCES</h3>
+              <p>Aguarde a autorização para se servir.</p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">08</span>
+            <div>
+              <h3>NÃO LEVE A DECORAÇÃO PARA CASA</h3>
+              <p>Os itens decorativos fazem parte da celebração.</p>
+            </div>
+          </article>
+          <article class="rule reveal">
+            <span class="rule-num">09</span>
+            <div>
+              <h3>NÃO SE ESQUEÇA DE PRESENTEAR O CASAL</h3>
+              <p>Seu carinho e sua lembrança serão recebidos com gratidão.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="interactions section reveal" id="links">
+        <span class="eyebrow">CLIQUE NOS ÍCONES PARA</span>
+        <h2 class="script">Interagir</h2>
+        <div class="link-grid">
+          <a
+            href="https://maps.app.goo.gl/JxKFtzDPF5LGyg6m9?g_st=ic"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-card"
+            ><img src="assets/localizacao.svg" alt="" />
+            <div>
+              <strong>LOCALIZAÇÃO</strong><span>Cerimônia &amp; recepção</span>
+            </div>
+            <b aria-hidden="true">↗</b></a
+          ><a
+            href="https://noivos.casar.com/la-e-ga-2026-09-12"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-card"
+            ><img src="assets/presente.svg" alt="" />
+            <div>
+              <strong>LISTA DE PRESENTES</strong
+              ><span>Escolha um presente</span>
+            </div>
+            <b aria-hidden="true">↗</b></a
+          ><a
+            href="https://noivos.casar.com/gabriel-e-larissa-2026-11-29"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-card"
+            ><img src="assets/presenca.svg" alt="" />
+            <div>
+              <strong>CONFIRME SUA PRESENÇA</strong><span>Até 16/11/2026</span>
+            </div>
+            <b aria-hidden="true">↗</b></a
+          >
+        </div>
+      </section>
+      <footer class="footer section reveal">
+        <div class="gold-divider"><span>♡</span></div>
+        <img
+          src="assets/monograma-lg.png"
+          alt="Monograma LG"
+          class="footer-logo"
+        />
+        <h2 class="script">Larissa &amp; Gabriel</h2>
+        <p>COM AMOR, ESPERAMOS POR VOCÊ.</p>
+      </footer>
+    </main>
+  </body>
+</html>
