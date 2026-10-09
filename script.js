@@ -29,6 +29,7 @@ function initEnvelope() {
     document.body.classList.remove("locked");
     invitation.removeAttribute("aria-hidden");
     soundBtn.hidden = false;
+    gsapRevealAll();
     return;
   }
   LGEnvelope.init({
@@ -47,13 +48,14 @@ function initEnvelope() {
     },
     onHeroReveal: () => {
       invitation.removeAttribute("aria-hidden");
+      animateHero();
     },
     onComplete: () => {
       document.body.classList.remove("locked");
       invitation.removeAttribute("aria-hidden");
       soundBtn.hidden = false;
       updateSound();
-      animateHero();
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
     },
   });
 }
@@ -79,38 +81,46 @@ function countdown() {
 countdown();
 setInterval(countdown, 1000);
 function animateHero() {
-  if (
-    !window.gsap ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  )
+  if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsapRevealAll();
     return;
+  }
+  if (animateHero.started) return;
+  animateHero.started = true;
   gsap
     .timeline()
-    .from(".hero-logo", {
-      opacity: 0,
-      scale: 0.78,
-      y: 25,
+    .to(".hero-logo", {
+      autoAlpha: 1,
+      scale: 1,
+      y: 0,
       duration: 1.3,
       ease: "power2.out",
     })
-    .from(
+    .fromTo(
       ".hero-names",
-      { opacity: 0, y: 35, duration: 1.1, ease: "power2.out" },
+      { autoAlpha: 0, y: 35 },
+      { autoAlpha: 1, y: 0, duration: 1.1, ease: "power2.out" },
       "-=.5",
     )
-    .from(
+    .fromTo(
       ".hero .reveal",
-      { opacity: 0, y: 18, stagger: 0.16, duration: 0.7 },
+      { autoAlpha: 0, y: 18 },
+      { autoAlpha: 1, y: 0, stagger: 0.16, duration: 0.7 },
       "-=.45",
     );
+}
+function gsapRevealAll() {
+  document.body.classList.remove("js-motion");
 }
 window.addEventListener("load", () => {
   if (
     !window.gsap ||
     !window.ScrollTrigger ||
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  )
+  ) {
+    gsapRevealAll();
     return;
+  }
   gsap.registerPlugin(ScrollTrigger);
   gsap.utils.toArray(".section:not(.hero) .reveal").forEach((el) => {
     gsap.from(el, {
@@ -121,4 +131,10 @@ window.addEventListener("load", () => {
       ease: "power2.out",
     });
   });
+  gsap.timeline({
+    scrollTrigger: { trigger: "#links", start: "top 88%", once: true }
+  })
+    .fromTo(".interactions-eyebrow", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out" })
+    .fromTo(".interactions-title", { autoAlpha: 0, y: 25 }, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" }, "-=0.35")
+    .fromTo(".link-card", { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.13, ease: "power2.out" }, "-=0.35");
 });

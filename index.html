@@ -28,7 +28,7 @@
     <script src="lg-envelope.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body class="locked">
+  <body class="locked js-motion">
     <div
       class="lg-envelope-root"
       role="dialog"
@@ -58,7 +58,7 @@
             aria-hidden="true"
           >
             <defs>
-              <path id="lg-text-curve" d="M 48,204 Q 150,314 252,204" />
+              <path id="lg-text-curve" d="M 36,224 Q 150,327 264,224" />
             </defs>
             <text>
               <textPath
@@ -147,89 +147,9 @@
           class="venue-image"
         />
       </section>
-      <section class="manual section" id="manual">
-        <span class="eyebrow reveal"
-          >ALGUNS RECADINHOS PARA O NOSSO GRANDE DIA</span
-        >
-        <h2 class="script reveal">Manual dos Convidados</h2>
-        <div class="manual-grid">
-          <article class="rule reveal">
-            <span class="rule-num">01</span>
-            <div>
-              <h3>CONVIDADO NÃO CONVIDA!</h3>
-              <p>
-                O convite é pessoal e destinado exclusivamente às pessoas
-                convidadas.
-              </p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">02</span>
-            <div>
-              <h3>CONFIRME SUA PRESENÇA</h3>
-              <p>Confirme sua presença até o dia 16/11/2026.</p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">03</span>
-            <div>
-              <h3>NÃO SE ATRASE</h3>
-              <p>Seja pontual e respeite o horário da cerimônia.</p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">04</span>
-            <div>
-              <h3>PARTICIPE DA CERIMÔNIA</h3>
-              <p>
-                Sua presença nesse momento tão especial é muito importante para
-                nós.
-              </p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">05</span>
-            <div>
-              <h3>RESPEITE AS CORES DOS NOIVOS</h3>
-              <p>
-                Branco é a cor da noiva e bege é a cor do noivo. Pedimos que
-                evitem essas cores.
-              </p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">06</span>
-            <div>
-              <h3>NÃO ATRAPALHE OS FOTÓGRAFOS</h3>
-              <p>Deixe os profissionais registrarem os momentos especiais.</p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">07</span>
-            <div>
-              <h3>AGUARDE A LIBERAÇÃO DA MESA DE DOCES</h3>
-              <p>Aguarde a autorização para se servir.</p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">08</span>
-            <div>
-              <h3>NÃO LEVE A DECORAÇÃO PARA CASA</h3>
-              <p>Os itens decorativos fazem parte da celebração.</p>
-            </div>
-          </article>
-          <article class="rule reveal">
-            <span class="rule-num">09</span>
-            <div>
-              <h3>NÃO SE ESQUEÇA DE PRESENTEAR O CASAL</h3>
-              <p>Seu carinho e sua lembrança serão recebidos com gratidão.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="interactions section reveal" id="links">
-        <span class="eyebrow">CLIQUE NOS ÍCONES PARA</span>
-        <h2 class="script">Interagir</h2>
+      <section class="interactions section" id="links">
+        <span class="eyebrow interactions-eyebrow">CLIQUE NOS ÍCONES PARA</span>
+        <h2 class="script interactions-title">Interagir</h2>
         <div class="link-grid">
           <a
             href="https://maps.app.goo.gl/JxKFtzDPF5LGyg6m9?g_st=ic"
@@ -239,8 +159,7 @@
             ><img src="assets/localizacao.svg" alt="" />
             <div>
               <strong>LOCALIZAÇÃO</strong><span>Cerimônia &amp; recepção</span>
-            </div>
-            <b aria-hidden="true">↗</b></a
+            </div></a
           ><a
             href="https://noivos.casar.com/la-e-ga-2026-09-12"
             target="_blank"
@@ -250,8 +169,7 @@
             <div>
               <strong>LISTA DE PRESENTES</strong
               ><span>Escolha um presente</span>
-            </div>
-            <b aria-hidden="true">↗</b></a
+            </div></a
           ><a
             href="https://noivos.casar.com/gabriel-e-larissa-2026-11-29"
             target="_blank"
@@ -260,9 +178,11 @@
             ><img src="assets/presenca.svg" alt="" />
             <div>
               <strong>CONFIRME SUA PRESENÇA</strong><span>Até 16/11/2026</span>
-            </div>
-            <b aria-hidden="true">↗</b></a
+            </div></a
           >
+          <a href="manual.html" class="link-card"
+            ><img src="assets/manual.svg" alt="" />
+            <div><strong>MANUAL DOS CONVIDADOS</strong><span>Orientações para nosso dia</span></div></a>
         </div>
       </section>
       <footer class="footer section reveal">

@@ -285,3 +285,7 @@
   outline: 3px solid #b98b43;
   outline-offset: -5px;
 }
+
+
+/* Keep the invitation prompt clear of the wax seal. */
+.lg-envelope-curved-text { overflow: visible; pointer-events: none; }
