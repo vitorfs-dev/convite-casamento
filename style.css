@@ -639,35 +639,45 @@ button {
   }
 }
 
-/* Texto acompanha o selo (não o envelope inteiro). */
+
+/* Texto curvado ao redor do selo LG */
 .lg-envelope-seal .lg-envelope-curved-text {
   position: absolute;
-  left: -12%;
-  top: -7%;
-  width: 124%;
-  height: 124%;
+  top: 9%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
   overflow: visible;
   pointer-events: none;
-  filter: drop-shadow(0 1px 1px rgba(255,255,255,.8));
+
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
 }
+
+/* Texto dourado metálico */
 .lg-envelope-curved-text text {
-  fill: #7f5a2e;
+  fill: url(#lg-gold-gradient);
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 2.1px;
+  letter-spacing: 1.5px;
 }
 
-
-/* Initial states prevent elements flashing before GSAP starts. */
+/* Evita que os elementos apareçam antes do GSAP */
 .js-motion .hero-logo,
 .js-motion .hero-names,
 .js-motion .hero .reveal,
 .js-motion .interactions-eyebrow,
 .js-motion .interactions-title,
-.js-motion .link-card { opacity: 0; visibility: hidden; }
-.interactions .link-card b { display: none !important; }
-.interactions .link-card { will-change: transform, opacity; }
+.js-motion .link-card {
+  opacity: 0;
+  visibility: hidden;
+}
 
-.lg-envelope-seal .lg-envelope-curved-text { top: 9%; left: -20%; width: 140%; height: 140%; }
-.lg-envelope-curved-text text { font-size: 12px; letter-spacing: 1.5px; }
+/* Oculta as setas dos cards */
+.interactions .link-card b {
+  display: none !important;
+}
+
+.interactions .link-card {
+  will-change: transform, opacity;
+}

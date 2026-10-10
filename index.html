@@ -36,31 +36,56 @@
       aria-label="Convite de casamento de Gabriel e Larissa"
     >
       <div class="lg-envelope-sheet"></div>
+
       <div class="lg-envelope-stage">
         <div class="lg-envelope-drop"></div>
+
         <div class="lg-envelope-paper-shade" aria-hidden="true">
-          <i class="lg-envelope-shade lg-envelope-shade--left"></i
-          ><i class="lg-envelope-shade lg-envelope-shade--right"></i
-          ><i class="lg-envelope-shade lg-envelope-shade--center"></i>
+          <i class="lg-envelope-shade lg-envelope-shade--left"></i>
+          <i class="lg-envelope-shade lg-envelope-shade--right"></i>
+          <i class="lg-envelope-shade lg-envelope-shade--center"></i>
         </div>
+
         <div class="lg-envelope-door lg-envelope-door--left">
           <span class="lg-envelope-door-shade"></span>
         </div>
+
         <div class="lg-envelope-door lg-envelope-door--right">
           <span class="lg-envelope-door-shade"></span>
         </div>
+
         <div class="lg-envelope-seal" aria-hidden="true">
           <i class="lg-envelope-seal-shadow"></i>
+
           <img class="lg-envelope-seal-img" alt="" draggable="false" />
+
           <svg
             class="lg-envelope-curved-text"
             viewBox="0 0 300 300"
             aria-hidden="true"
           >
             <defs>
+              <!-- Caminho original do texto curvado -->
               <path id="lg-text-curve" d="M 36,224 Q 150,327 264,224" />
+
+              <!-- Gradiente metálico dourado -->
+              <linearGradient
+                id="lg-gold-gradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stop-color="#70451E" />
+                <stop offset="35%" stop-color="#C69C55" />
+                <stop offset="50%" stop-color="#FFF0BD" />
+                <stop offset="65%" stop-color="#D4AF6A" />
+                <stop offset="100%" stop-color="#70451E" />
+              </linearGradient>
             </defs>
-            <text>
+
+            <!-- Texto com preenchimento dourado -->
+            <text fill="url(#lg-gold-gradient)">
               <textPath
                 href="#lg-text-curve"
                 startOffset="50%"
@@ -121,7 +146,7 @@
         <div class="date-layout">
           <div class="date-side"><span>NOVEMBRO</span></div>
           <strong>29</strong>
-          <div class="date-side"><span>ÀS 13H</span></div>
+          <div class="date-side"><span>ÀS 14H</span></div>
         </div>
         <span class="eyebrow">DOMINGO · 2026</span>
       </section>
@@ -139,7 +164,7 @@
       <section class="venue section reveal" id="local">
         <span class="eyebrow">LOCAL</span>
         <h2 class="script">JB Espaço Eventos</h2>
-        <p>R. Treze, 564 — Vila Sônia<br />São Paulo — SP</p>
+        <p>R. Tietê, 584 — Vila Seabra<br />São Paulo — SP</p>
         <img
           src="assets/local-aquarela.png"
           alt="Ilustração em aquarela do JB Espaço Eventos"
@@ -157,9 +182,7 @@
             rel="noopener noreferrer"
             class="link-card"
             ><img src="assets/localizacao.svg" alt="" />
-            <div>
-              <strong>LOCALIZAÇÃO</strong><span>Cerimônia &amp; recepção</span>
-            </div></a
+            <div><strong>LOCALIZAÇÃO</strong><span>Recepção</span></div></a
           ><a
             href="https://noivos.casar.com/la-e-ga-2026-09-12"
             target="_blank"
@@ -182,7 +205,11 @@
           >
           <a href="manual.html" class="link-card"
             ><img src="assets/manual.svg" alt="" />
-            <div><strong>MANUAL DOS CONVIDADOS</strong><span>Orientações para nosso dia</span></div></a>
+            <div>
+              <strong>MANUAL DOS CONVIDADOS</strong
+              ><span>Orientações para nosso dia</span>
+            </div></a
+          >
         </div>
       </section>
       <footer class="footer section reveal">

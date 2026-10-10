@@ -82,6 +82,26 @@
       sealImg = q(".lg-envelope-seal-img"),
       sealShadow = q(".lg-envelope-seal-shadow");
     var ui = q(".lg-envelope-curved-text");
+
+    var goldGradient = q("#lg-gold-gradient");
+    var goldAnimation = null;
+
+    if (goldGradient) {
+      goldAnimation = gsap.fromTo(
+        goldGradient,
+        {
+          attr: { x1: "-100%", x2: "0%" },
+        },
+        {
+          attr: { x1: "100%", x2: "200%" },
+          duration: 4,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        },
+      );
+    }
+
     var hero = document.querySelector(o.heroSelector);
     if (!hero)
       console.warn(
@@ -410,6 +430,9 @@
       state.destroyed = true;
       clearTimeout(readyTimer);
       if (tl) tl.kill();
+
+      // Encerra a animação dourada quando o envelope é removido
+      if (goldAnimation) goldAnimation.kill();
       gsap.killTweensOf(
         [el, seal, sealShadow, doorL, doorR, shL, shR, shC, drop, ui, hero]
           .concat([].slice.call(doorShades))
