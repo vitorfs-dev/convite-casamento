@@ -138,3 +138,96 @@ window.addEventListener("load", () => {
     .fromTo(".interactions-title", { autoAlpha: 0, y: 25 }, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" }, "-=0.35")
     .fromTo(".link-card", { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.13, ease: "power2.out" }, "-=0.35");
 });
+
+/* ===== Modal de presentes (Pix / Cartão) ===== */
+(function () {
+  const PIX_KEY = "52777258813"; // CPF (somente números)
+  const PIX_NAME = "LARISSA FERREIRA DE LIMA";
+  const PIX_CITY = "BRASIL";
+
+  function tlv(id, value) {
+    return id + String(value.length).padStart(2, "0") + value;
+  }
+  function crc16(str) {
+    let crc = 0xffff;
+    for (let i = 0; i < str.length; i++) {
+      crc ^= str.charCodeAt(i) << 8;
+      for (let j = 0; j < 8; j++) {
+        crc = crc & 0x8000 ? ((crc << 1) ^ 0x1021) & 0xffff : (crc << 1) & 0xffff;
+      }
+    }
+    return crc.toString(16).toUpperCase().padStart(4, "0");
+  }
+  function pixPayload() {
+    const base =
+      tlv("00", "01") +
+      tlv("26", tlv("00", "br.gov.bcb.pix") + tlv("01", PIX_KEY)) +
+      tlv("52", "0000") +
+      tlv("53", "986") +
+      tlv("58", "BR") +
+      tlv("59", PIX_NAME.slice(0, 25)) +
+      tlv("60", PIX_CITY) +
+      tlv("62", tlv("05", "***")) +
+      "6304";
+    return base + crc16(base);
+  }
+
+  const modal = document.getElementById("giftModal");
+  const card = document.getElementById("giftCard");
+  if (!modal || !card) return;
+  const views = modal.querySelectorAll("[data-view]");
+  let lastFocus = null;
+
+  function show(name) {
+    views.forEach((v) => (v.hidden = v.dataset.view !== name));
+    const first = modal.querySelector(`[data-view="${name}"] button:not([data-close]), [data-view="${name}"] a`);
+    if (first) first.focus();
+  }
+  function open(e) {
+    e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    show("choose");
+    if (window.gsap) {
+      gsap.fromTo(".gift-dialog", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" });
+      gsap.fromTo(".gift-backdrop", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 });
+    }
+  }
+  function close() {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (lastFocus) lastFocus.focus();
+  }
+  async function copy(btn, text) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (_) {
+      const t = document.createElement("textarea");
+      t.value = text;
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand("copy");
+      t.remove();
+    }
+    const old = btn.textContent;
+    btn.textContent = "Copiado ✓";
+    btn.classList.add("copied");
+    setTimeout(() => {
+      btn.textContent = old;
+      btn.classList.remove("copied");
+    }, 2000);
+  }
+
+  card.addEventListener("click", open);
+  modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) close();
+    const go = e.target.closest("[data-go]");
+    if (go) show(go.dataset.go);
+  });
+  document.getElementById("copyKey").addEventListener("click", (e) => copy(e.currentTarget, PIX_KEY));
+  document.getElementById("copyPayload").addEventListener("click", (e) => copy(e.currentTarget, pixPayload()));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) close();
+  });
+})();

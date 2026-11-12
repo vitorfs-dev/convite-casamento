@@ -681,3 +681,36 @@ button {
 .interactions .link-card {
   will-change: transform, opacity;
 }
+
+/* ===== Modal de presentes ===== */
+.gift-modal[hidden] { display: none; }
+.gift-modal { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 20px; }
+.gift-backdrop { position: absolute; inset: 0; background: #3a2a1acc; backdrop-filter: blur(3px); }
+.gift-dialog {
+  position: relative; width: min(100%, 420px); max-height: 90vh; overflow: auto;
+  padding: 34px 22px 26px; text-align: center; color: var(--ink);
+  background: var(--paper); border: 1px solid #d5a55d; border-radius: 16px;
+  box-shadow: inset 0 0 0 5px #fff9ee, 0 20px 60px #00000055;
+}
+.gift-dialog .script { font-size: 2.6rem; margin: 4px 0 18px; }
+.gift-close {
+  position: absolute; top: 8px; right: 12px; border: 0; background: none;
+  font-size: 2rem; line-height: 1; color: var(--gold-deep);
+}
+.gift-options { display: grid; gap: 12px; }
+.gift-option { width: 100%; font: inherit; cursor: pointer; }
+.gift-name { font-size: 1.3rem; margin: 0 0 4px; }
+.gift-key {
+  font: 600 0.8rem/1.4 Montserrat, sans-serif; letter-spacing: 0.04em;
+  margin: 0 0 18px; color: var(--gold-deep);
+}
+.gift-copy {
+  display: block; width: 100%; padding: 14px; margin-bottom: 10px; border: 0; border-radius: 999px;
+  font: 600 0.78rem Montserrat, sans-serif; letter-spacing: 0.05em; color: #fff;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-deep));
+}
+.gift-copy-alt { background: none; color: var(--gold-deep); border: 1px solid #d5a55d; }
+.gift-copy.copied { background: #5f8a5a; color: #fff; border-color: #5f8a5a; }
+.gift-note { font-size: 1rem; margin: 14px 0; }
+.gift-back { border: 0; background: none; color: var(--gold-deep); font: 600 0.75rem Montserrat, sans-serif; }
+body.modal-open { overflow: hidden; }
