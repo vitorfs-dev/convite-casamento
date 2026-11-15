@@ -243,8 +243,6 @@
             target="_blank"
             rel="noopener noreferrer"
             class="link-card"
-            id="giftCard"
-            aria-haspopup="dialog"
             ><img src="assets/presente.svg" alt="" />
             <div>
               <strong>LISTA DE PRESENTES</strong
@@ -280,38 +278,5 @@
         <p>COM AMOR, ESPERAMOS POR VOCÊ.</p>
       </footer>
     </main>
-
-    <div class="gift-modal" id="giftModal" hidden>
-      <div class="gift-backdrop" data-close></div>
-      <div class="gift-dialog" role="dialog" aria-modal="true" aria-labelledby="giftTitle">
-        <button class="gift-close" type="button" data-close aria-label="Fechar">&times;</button>
-
-        <div class="gift-view" data-view="choose">
-          <span class="eyebrow">COM CARINHO</span>
-          <h3 class="script" id="giftTitle">Presentear os noivos</h3>
-          <div class="gift-options">
-            <button type="button" class="link-card gift-option" data-go="pix">
-              <img src="assets/presente.svg" alt="" />
-              <div><strong>PRESENTEAR COM PIX</strong><span>Envie um valor de coração</span></div>
-            </button>
-            <a class="link-card gift-option" href="https://noivos.casar.com/la-e-ga-2026-09-12" target="_blank" rel="noopener noreferrer">
-              <img src="assets/presente.svg" alt="" />
-              <div><strong>CARTÃO DE CRÉDITO</strong><span>Escolha na lista de presentes</span></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="gift-view" data-view="pix" hidden>
-          <span class="eyebrow">PRESENTE VIA PIX</span>
-          <h3 class="script">Chave Pix</h3>
-          <p class="gift-name">Larissa Ferreira de Lima</p>
-          <p class="gift-key" id="pixKeyText">CPF: 527.772.588-13</p>
-          <button type="button" class="gift-copy" id="copyKey">Copiar chave Pix</button>
-          <button type="button" class="gift-copy gift-copy-alt" id="copyPayload">Copiar código Pix (copia e cola)</button>
-          <p class="gift-note">Confira o nome do favorecido antes de confirmar. Obrigado pelo carinho! ♡</p>
-          <button type="button" class="gift-back" data-go="choose">&larr; Voltar</button>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
